@@ -1,0 +1,12 @@
+{
+    "name": "xy3/1t-ui",
+    "description": "User interface for 1t.ie",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Theo Morgan",
+            "email": "theo@1t.ie"
+        }
+    ],
+    "require": {}
+}
