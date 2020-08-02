@@ -2,7 +2,7 @@
 
 namespace OneTUI;
 /**
- * Views helper
+ * Views helper (Uses klein service)
  */
 class Views
 {
