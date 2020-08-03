@@ -8,5 +8,12 @@
             "email": "theo@1t.ie"
         }
     ],
-    "require": {}
+    "require": {
+        "klein/klein": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "OneTUI\\": "src/OneTUI/"
+        }
+    }
 }
