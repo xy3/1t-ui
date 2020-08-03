@@ -1,3 +1,7 @@
 .idea/
 **/.sass-cache/
 vendor/
+composer.phar
+prepros.config
+.htaccess
+index.php
