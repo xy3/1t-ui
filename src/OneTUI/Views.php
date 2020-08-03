@@ -16,6 +16,7 @@ class Views
     {
         $this->service = $_service;
         $this->assets_dir = str_replace("OneTUI", "assets/", __DIR__);
+        $this->assets_dir = str_replace('\\', '/', $this->assets_dir);
         $this->sharedData = [
             'views' => $this->views_dir,
             'components' => $this->components_dir,
