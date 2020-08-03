@@ -7,14 +7,15 @@ namespace OneTUI;
 class Views
 {
     private $service;
-    private $assets_dir = __DIR__ . "/assets/";
+    private $assets_dir;
+    private $sharedData;
     private $views_dir = __DIR__ . "/assets/views/";
     private $components_dir = __DIR__ . "/assets/views/components/";
-    private $sharedData;
 
     function __construct($_service)
     {
         $this->service = $_service;
+        $this->assets_dir = str_replace("OneTUI", "assets/", __DIR__);
         $this->sharedData = [
             'views' => $this->views_dir,
             'components' => $this->components_dir,
