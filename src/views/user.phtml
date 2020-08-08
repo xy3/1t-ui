@@ -13,19 +13,7 @@
 
         <div class="row title-row">
             <div class="col-12">
-                <h1>1t.ie</h1>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="col-6">
-                <a href="https://alternativeto.net/software/1t-ie/" class="href">
-                    <div class="toast toast--info">
-                        <button class="btn-close"></button>
-                        <p>Click here to check out our page on AlternativeTo!</p>
-                    </div>
-                </a>
+                <h1>My Account</h1>
             </div>
         </div>
 
@@ -33,19 +21,25 @@
             <div class="col-12">
                 <div class="frame">
                     <div class="frame__header">
-                        <h6 class="frame__title m-0">Shorten your long URLs by entering them here</h6>
+                        <h6 class="frame__title m-0">Your Links</h6>
                     </div>
                     <div class="frame__body">
-                        <form id="shorten_url_form">
-                            <div class="form-group">
-                                <label for="url" class="form-group-label label-large">URL</label>
-                                <input type="text" class="form-group-input input-large" id="url" name="url"
-                                       placeholder="eg. https://example.com">
-                                <button class="form-group-btn btn-large btn-primary" id="shorten-btn" type="submit"
-                                        form="shorten_url_form">Go
-                                </button>
-                            </div>
-                        </form>
+                        <table class="table bordered striped">
+                            <thead>
+                            <tr>
+                                <th><abbr title="Link ID">#</abbr></th>
+                                <th>1t Link</th>
+                                <th>Links to</th>
+                                <th>Controls</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr><th>1</th><td>Row:1 Cell:1</td><td>Row:1 Cell:2</td><td><button class="btn-dark">Edit</button> <button class="btn-danger">Delete</button> </td></tr>
+                            <tr><th>2</th><td>Row:2 Cell:1</td><td>Row:2 Cell:2</td><td><button class="btn-dark">Edit</button> <button class="btn-danger">Delete</button> </td></tr>
+                            <tr><th>3</th><td>Row:3 Cell:1</td><td>Row:3 Cell:2</td><td><button class="btn-dark">Edit</button> <button class="btn-danger">Delete</button> </td></tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="frame__footer"></div>
                 </div>

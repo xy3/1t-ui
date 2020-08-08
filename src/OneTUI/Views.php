@@ -7,20 +7,20 @@ namespace OneTUI;
 class Views
 {
     private $service;
-    private $assets_dir;
     private $sharedData;
-    private $views_dir = __DIR__ . "/assets/views/";
-    private $components_dir = __DIR__ . "/assets/views/components/";
+    private $views_dir = "src/views/";
+    private $components_dir = "src/views/components/";
+    private $assets_dir = "src/";
+    private $ui_version = "1.0.0";
 
     function __construct($_service)
     {
         $this->service = $_service;
-        $this->assets_dir = str_replace("OneTUI", "assets/", __DIR__);
-        $this->assets_dir = str_replace('\\', '/', $this->assets_dir);
         $this->sharedData = [
             'views' => $this->views_dir,
             'components' => $this->components_dir,
-            'assets' => $this->assets_dir
+            'assets' => $this->assets_dir,
+            'version' => $this->ui_version,
         ];
     }
 
@@ -36,7 +36,7 @@ class Views
 
     public function userPage()
     {
-        $this->service->render($this->views_dir . "home.phtml", $this->sharedData);
+        $this->service->render($this->views_dir . "user.phtml", $this->sharedData);
     }
 
 }

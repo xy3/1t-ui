@@ -4,8 +4,79 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f5b19b6711a7cc9e0ed86b9ed764ba7",
+    "content-hash": "11f2244e42320812880513b5fd27f93b",
     "packages": [
+        {
+            "name": "hashids/hashids",
+            "version": "4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vinkla/hashids.git",
+                "reference": "43bb2407f16a631f0128f47bcb67ff986c63dde2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vinkla/hashids/zipball/43bb2407f16a631f0128f47bcb67ff986c63dde2",
+                "reference": "43bb2407f16a631f0128f47bcb67ff986c63dde2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0"
+            },
+            "suggest": {
+                "ext-bcmath": "Required to use BC Math arbitrary precision mathematics (*).",
+                "ext-gmp": "Required to use GNU multiple precision mathematics (*)."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hashids\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Akimov",
+                    "email": "ivan@barreleye.com",
+                    "homepage": "https://twitter.com/IvanAkimov"
+                },
+                {
+                    "name": "Vincent Klaiber",
+                    "email": "hello@doubledip.se",
+                    "homepage": "https://doubledip.se"
+                }
+            ],
+            "description": "Generate short, unique, non-sequential ids (like YouTube and Bitly) from numbers",
+            "homepage": "http://hashids.org/php",
+            "keywords": [
+                "bitly",
+                "decode",
+                "encode",
+                "hash",
+                "hashid",
+                "hashids",
+                "ids",
+                "obfuscate",
+                "youtube"
+            ],
+            "support": {
+                "issues": "https://github.com/vinkla/hashids/issues",
+                "source": "https://github.com/vinkla/hashids/tree/4.0.0"
+            },
+            "time": "2019-04-03T13:40:29+00:00"
+        },
         {
             "name": "klein/klein",
             "version": "v2.1.2",
@@ -65,6 +136,49 @@
                 "source": "https://github.com/klein/klein.php/tree/master"
             },
             "time": "2017-02-01T23:08:58+00:00"
+        },
+        {
+            "name": "xy3/1t-api",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xy3/1t.ie.git",
+                "reference": "a7083040de03cf1563c3aac580de84c901879df6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xy3/1t.ie/zipball/a7083040de03cf1563c3aac580de84c901879df6",
+                "reference": "a7083040de03cf1563c3aac580de84c901879df6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-pdo": "*",
+                "hashids/hashids": "4.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OneT\\": "src/OneT/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Theo Morgan",
+                    "email": "theo@1t.ie"
+                }
+            ],
+            "description": "Api for 1t.ie",
+            "support": {
+                "issues": "https://github.com/xy3/1t.ie/issues",
+                "source": "https://github.com/xy3/1t.ie/tree/master"
+            },
+            "time": "2020-08-08T00:43:28+00:00"
         }
     ],
     "packages-dev": [],
