@@ -30,14 +30,40 @@
                                 <th><abbr title="Link ID">#</abbr></th>
                                 <th>1t Link</th>
                                 <th>Links to</th>
+                                <th>Visitors</th>
                                 <th>Controls</th>
                             </tr>
                             </thead>
-
                             <tbody>
-                            <tr><th>1</th><td>Row:1 Cell:1</td><td>Row:1 Cell:2</td><td><button class="btn-dark">Edit</button> <button class="btn-danger">Delete</button> </td></tr>
-                            <tr><th>2</th><td>Row:2 Cell:1</td><td>Row:2 Cell:2</td><td><button class="btn-dark">Edit</button> <button class="btn-danger">Delete</button> </td></tr>
-                            <tr><th>3</th><td>Row:3 Cell:1</td><td>Row:3 Cell:2</td><td><button class="btn-dark">Edit</button> <button class="btn-danger">Delete</button> </td></tr>
+
+                            <?php foreach($this->user_links as $key => $row): ?>
+                                <tr>
+                                    <th>
+                                        <p><?= $key ?></p>
+                                    </th>
+                                    <td>
+                                        <div class="form-group">
+                                            <input class="form-group-input" value="<?= $this->site_url . $row->short_slug ?>" readonly>
+                                            <button class="form-group-btn"><i class="far fa-copy"></i></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input class="form-group-input" value="<?= base64_decode($row->url_base64) ?>" readonly>
+                                            <button class="form-group-btn"><i class="far fa-edit"></i></button>
+                                            <button class="form-group-btn"><i class="far fa-copy"></i></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p>100</p>
+                                    </td>
+                                    <td>
+                                        <div class="btn-container">
+                                            <div class="btn btn-danger btn-small">Delete</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>

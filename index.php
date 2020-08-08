@@ -9,6 +9,8 @@ use Klein\Klein;
 
 use OneT\Api;
 use OneT\Database;
+use OneT\Statistics;
+use OneTUI\Userpage;
 use OneTUI\Views;
 
 
@@ -33,8 +35,14 @@ $klein->respond(function ($request, $response, $service, $app) use ($config, $kl
         return new Api($app);
     });
 
-    $app->register('view', function () use ($app, $service) {
-        return new Views($service);
+    $app->register('stats', function () use ($app) {
+        return new Statistics($app);
+    });
+
+    $app->register('view', function () use ($request, $app, $service) {
+        $views = new Views($service);
+        $views->setSiteUrl($app->api->getSiteUrl($request));
+        return $views;
     });
 });
 
@@ -43,7 +51,7 @@ $klein->respond('GET', '/', function ($req, $resp, $service, $app) {
 });
 
 $klein->respond('GET', '/user', function ($req, $resp, $service, $app) use ($klein) {
-    $app->view->userPage();
+    $app->view->userPage($app->stats->getUserLinks(2));
     $klein->abort();
 });
 
