@@ -1,0 +1,35 @@
+.frame {
+  background-color: #fff;
+}
+
+.padded {
+  padding: 0 2rem;
+}
+
+.level.fill-height {
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.col:first-child {
+  padding-left: 0;
+}
+
+.col:last-child {
+  padding-right: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .col-6:not(:last-child) {
+    border-right: 1px solid rgba(0, 0, 0, 0.10);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .level.fill-height {
+    display: inherit;
+  }
+}

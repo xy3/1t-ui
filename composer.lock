@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "11f2244e42320812880513b5fd27f93b",
+    "content-hash": "5f9e536f124b33a788f652417f24946c",
     "packages": [
         {
             "name": "hashids/hashids",
@@ -139,16 +139,16 @@
         },
         {
             "name": "xy3/1t-api",
-            "version": "1.0.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xy3/1t.ie.git",
-                "reference": "0b585dd80f9cb64a12af60a6969aea2b13ba5895"
+                "reference": "3f9cef7f7a13f4c201cac264c6a257198a8a9913"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xy3/1t.ie/zipball/0b585dd80f9cb64a12af60a6969aea2b13ba5895",
-                "reference": "0b585dd80f9cb64a12af60a6969aea2b13ba5895",
+                "url": "https://api.github.com/repos/xy3/1t.ie/zipball/3f9cef7f7a13f4c201cac264c6a257198a8a9913",
+                "reference": "3f9cef7f7a13f4c201cac264c6a257198a8a9913",
                 "shasum": ""
             },
             "require": {
@@ -157,6 +157,7 @@
                 "ext-pdo": "*",
                 "hashids/hashids": "4.0.0"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -176,15 +177,17 @@
             "description": "Api for 1t.ie",
             "support": {
                 "issues": "https://github.com/xy3/1t.ie/issues",
-                "source": "https://github.com/xy3/1t.ie/tree/1.0.1"
+                "source": "https://github.com/xy3/1t.ie/tree/master"
             },
-            "time": "2020-08-08T17:50:45+00:00"
+            "time": "2020-08-09T23:31:23+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "xy3/1t-api": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

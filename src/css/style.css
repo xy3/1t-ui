@@ -27,3 +27,35 @@
 .content {
   max-width: 80em;
 }
+
+.frame {
+  background-color: #fff;
+}
+
+.padded {
+  padding: 0 2rem;
+}
+
+.level.fill-height {
+  align-items: stretch;
+  display: flex;
+}
+
+.col:first-child {
+  padding-left: 0;
+}
+
+.col:last-child {
+  padding-right: 0;
+}
+
+@media screen and (min-width: 769px) {
+  .col-6:not(:last-child) {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+@media screen and (max-width: 768px) {
+  .level.fill-height {
+    display: inherit;
+  }
+}

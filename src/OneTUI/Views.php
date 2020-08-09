@@ -1,6 +1,9 @@
 <?php
 
 namespace OneTUI;
+use OneT\Accounts;
+use OneT\Statistics;
+
 /**
  * Views helper (Uses klein service)
  */
@@ -13,10 +16,19 @@ class Views
     private $assets_dir = "src/";
     private $ui_version = "1.0.0";
     private $site_url = "https://1t.ie/";
+    private $stats;
+    private $app;
 
-    function __construct($_service)
+    /**
+     * Views constructor.
+     * @param $app
+     * @param $service
+     */
+    function __construct($app, $service)
     {
-        $this->service = $_service;
+        $this->app = $app;
+        $this->service = $service;
+
         $this->sharedData = [
             'views' => $this->views_dir,
             'components' => $this->components_dir,
@@ -24,6 +36,21 @@ class Views
             'version' => $this->ui_version,
             'site_url' => $this->site_url,
         ];
+        $this->stats = new Statistics($app);
+    }
+
+    public function show($req, $resp, $app, $service)
+    {
+        $page = $req->page;
+        $page();
+    }
+
+    public function showProtected($page)
+    {
+        if (!Accounts::isLoggedIn()) {
+            $this->login();
+        }
+
     }
 
     public function getSharedData()
@@ -33,21 +60,18 @@ class Views
 
     public function home()
     {
-        $this->service->render($this->views_dir . "home.phtml", $this->sharedData);
+        $this->renderView("home");
     }
 
-    public function userPage($user_links)
+    public function user()
     {
-        $this->sharedData['user_links'] = $user_links;
-        $this->service->render($this->views_dir . "user.phtml", $this->sharedData);
+        $this->sharedData['user_links'] = $this->stats->getUserLinks($_SESSION['user_id']);
+        $this->renderView("user");
     }
 
-    /**
-     * @return string
-     */
-    public function getSiteUrl()
+    public function login()
     {
-        return $this->site_url;
+        $this->renderView("login_register");
     }
 
     /**
@@ -56,6 +80,11 @@ class Views
     public function setSiteUrl($site_url)
     {
         $this->site_url = $site_url;
+    }
+
+    private function renderView($page)
+    {
+        $this->service->render($this->views_dir . "$page.phtml", $this->sharedData);
     }
 
 }

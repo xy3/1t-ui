@@ -1,7 +1,7 @@
 {
     "require": {
         "klein/klein": "^2.1",
-        "xy3/1t-api": "^1.0.0"
+        "xy3/1t-api": "dev-master"
     },
     "autoload": {
         "psr-4": {
