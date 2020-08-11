@@ -1,0 +1,71 @@
+<div class="space large"></div>
+<div class="space large"></div>
+
+<section class="padtop">
+    <div class="content">
+
+        <div class="row title-row">
+            <div class="col-12">
+                <h1>My Account</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="frame">
+                    <div class="frame__header">
+                        <h6 class="frame__title m-0">Your Links</h6>
+                    </div>
+                    <div class="frame__body">
+                        <table class="table bordered striped">
+                            <thead>
+                            <tr>
+                                <th><abbr title="Link ID">#</abbr></th>
+                                <th>1t Link</th>
+                                <th>Links to</th>
+                                <th>Visitors</th>
+                                <th>Controls</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <?php foreach($this->user_links as $key => $row): ?>
+                                <tr>
+                                    <th>
+                                        <p><?= $key ?></p>
+                                    </th>
+                                    <td>
+                                        <div class="form-group">
+                                            <input class="form-group-input" value="<?= $this->site_url . $row->short_slug ?>" readonly>
+                                            <button class="form-group-btn"><i class="far fa-copy"></i></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="form-group">
+                                            <input class="form-group-input" value="<?= base64_decode($row->url_base64) ?>" readonly>
+                                            <button class="form-group-btn"><i class="far fa-edit"></i></button>
+                                            <button class="form-group-btn"><i class="far fa-copy"></i></button>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <p>100</p>
+                                    </td>
+                                    <td>
+                                        <div class="btn-container">
+                                            <div class="btn btn-danger btn-small">Delete</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="frame__footer"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="space large"></div>

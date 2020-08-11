@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f9e536f124b33a788f652417f24946c",
+    "content-hash": "5000a9a7118fe46afbddc2a62a6410b9",
     "packages": [
         {
             "name": "hashids/hashids",
@@ -131,25 +131,15 @@
                 "routing",
                 "sinatra"
             ],
-            "support": {
-                "issues": "https://github.com/klein/klein.php/issues",
-                "source": "https://github.com/klein/klein.php/tree/master"
-            },
             "time": "2017-02-01T23:08:58+00:00"
         },
         {
             "name": "xy3/1t-api",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/xy3/1t.ie.git",
-                "reference": "3f9cef7f7a13f4c201cac264c6a257198a8a9913"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/xy3/1t.ie/zipball/3f9cef7f7a13f4c201cac264c6a257198a8a9913",
-                "reference": "3f9cef7f7a13f4c201cac264c6a257198a8a9913",
-                "shasum": ""
+                "type": "path",
+                "url": "../1t.ie",
+                "reference": "5459604e9e265b541a8d8c40dbb9b274e7baeb3c"
             },
             "require": {
                 "ext-curl": "*",
@@ -157,14 +147,12 @@
                 "ext-pdo": "*",
                 "hashids/hashids": "4.0.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "OneT\\": "src/OneT/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -175,11 +163,9 @@
                 }
             ],
             "description": "Api for 1t.ie",
-            "support": {
-                "issues": "https://github.com/xy3/1t.ie/issues",
-                "source": "https://github.com/xy3/1t.ie/tree/master"
-            },
-            "time": "2020-08-09T23:31:23+00:00"
+            "transport-options": {
+                "relative": true
+            }
         }
     ],
     "packages-dev": [],
@@ -192,5 +178,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

@@ -14,7 +14,7 @@
             <div class="frame__body u-no-padding">
                 <div class="row u-no-padding level fill-height">
                     <div class="col-6">
-                        <form name="login-form" method="post">
+                        <form name="login-form" method="post" action="/accounts/login">
                             <div class="frame__body">
                                 <h3>Login</h3>
                                 <div class="form-section">
@@ -45,33 +45,33 @@
                         </form>
                     </div>
                     <div class="col-6">
-                        <form name="register-form" method="post">
+                        <form name="register-form" method="post" action="/accounts/register">
                             <div class="padded">
                                 <h3>Sign Up</h3>
                                 <div class="form-section">
-                                    <label for="name">Name</label>
+                                    <label for="register-email">Email</label>
                                     <div class="input-control">
-                                        <input class="input-contains-icon" id="name" name="name" placeholder="Name"
-                                               type="text" value="">
+                                        <input class="input-contains-icon" id="register-email" name="email"
+                                               placeholder="Email" type="email" value="" required>
+                                        <span class="icon">
+                                                <i class="far fa-wrapper fa-envelope-open small"></i>
+                                        </span></div>
+                                </div>
+                                <div class="form-section">
+                                    <label for="register-username">Username</label>
+                                    <div class="input-control">
+                                        <input class="input-contains-icon" id="register-username" name="username" placeholder="Username"
+                                               type="text" value="" required minlength="4">
                                         <span class="icon">
                                                 <i class="far fa-wrapper fa-user-circle small"></i>
                                             </span>
                                     </div>
                                 </div>
                                 <div class="form-section">
-                                    <label for="register-email">Email</label>
-                                    <div class="input-control">
-                                        <input class="input-contains-icon" id="register-email" name="email"
-                                               placeholder="Email" type="text" value="">
-                                        <span class="icon">
-                                                <i class="far fa-wrapper fa-envelope-open small"></i>
-                                        </span></div>
-                                </div>
-                                <div class="form-section">
                                     <label for="register-password">Password</label>
                                     <div class="input-control">
                                         <input class="input-contains-icon" id="register-password" name="password"
-                                               placeholder="Password" type="password" value="">
+                                               placeholder="Password" type="password" value="" required minlength="6">
                                         <span class="icon">
                                                 <i class="fas fa-wrapper fa-key small"></i>
                                         </span></div>

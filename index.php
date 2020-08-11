@@ -1,9 +1,10 @@
 <?php
 
-require 'vendor/autoload.php';
+require "vendor/autoload.php";
 
 use Klein\Klein;
 
+use OneT\Accounts;
 use OneT\Api;
 use OneT\Database;
 use OneTUI\Views;
@@ -17,7 +18,9 @@ $klein->respond(function ($request, $response, $service, $app) use ($config, $kl
     // Handle exceptions => flash the message and redirect to the referrer
     $klein->onError(function ($klein, $err_msg) {
         $klein->service()->flash($err_msg);
-        $klein->service()->back();
+        $klein->service()->flashes();
+        echo $err_msg;
+//        $klein->service()->back();
     });
 
     // lazy services (Only get instantiated on first call)
@@ -27,26 +30,57 @@ $klein->respond(function ($request, $response, $service, $app) use ($config, $kl
     });
 
     $app->register('api', function () use ($app) {
-        return new Api($app->db);
+        return new Api($app->pdo);
     });
 
-    $app->register('view', function () use ($request, $app, $service) {
+    $app->register('accounts', function () use ($app) {
+        return new Accounts($app->pdo);
+    });
+
+    $app->register('views', function () use ($request, $app, $service) {
         $views = new Views($app, $service);
         $views->setSiteUrl($app->api->getSiteUrl($request));
         return $views;
     });
-
-    $klein->respond('GET', '/', $app->views->show);
-    $klein->respond('GET', '/[user|login|contact:page]', $app->views->show);
 });
 
 
-$klein->respond(['POST', 'GET'], '/api/[:action]', function ($req, $resp, $service, $app) {
+$pages = [
+    'user',
+    'links',
+    'debug'
+];
+
+
+$view = function ($request, $response, $service, $app) use ($klein) {
+    $app->views->show($request, $response, $service, $app);
+};
+
+$protectedView = function ($request, $response, $service, $app) use ($klein) {
+    $app->views->showProtected($request, $response, $service, $app);
+};
+
+$klein->respond('GET', '/', $view);
+$klein->respond('GET', '/[user|links:page]', $protectedView);
+
+
+$klein->respond(['POST', 'GET'], '/api/[a:action]', function ($req, $resp, $service, $app) {
     $app->api->execute($req, $resp);
 });
 
-$klein->respond(['POST', 'GET'], '@/[a:short_slug]', function ($req, $resp, $service, $app) {
-    $app->api->resolve($req, $resp);
+$klein->respond(['POST', 'GET'], '/[a:short_slug]', function ($req, $resp, $service, $app) use ($pages, $klein) {
+    if (!in_array($req->short_slug, $pages)) {
+        $app->api->resolve($req, $resp);
+    }
+});
+
+$klein->respond(['POST', 'GET'], '/accounts/[a:action]', function ($req, $resp, $service, $app) {
+    $app->accounts->execute($req, $resp);
+});
+
+$klein->respond('GET', '/debug', function ($req, $resp, $service, $app) {
+    session_start();
+    var_dump($_SESSION);
 });
 
 
