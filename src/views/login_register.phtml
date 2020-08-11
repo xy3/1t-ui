@@ -14,7 +14,7 @@
             <div class="frame__body u-no-padding">
                 <div class="row u-no-padding level fill-height">
                     <div class="col-6">
-                        <form name="login-form" method="post" action="/accounts/login">
+                        <form name="login-form" id="login-form" method="post">
                             <div class="frame__body">
                                 <h3>Login</h3>
                                 <div class="form-section">
@@ -38,14 +38,14 @@
                                     </div>
                                 </div>
                                 <space></space>
-                                <button class="btn-info u-pull-right" name="btn" value="login" type="submit">Log In
+                                <button class="btn-info u-pull-right" id="login-btn" name="btn" value="login" type="submit">Log In
                                 </button>
-                                <span class="fg-danger info"></span>
+                                <span class="fg-danger info login-result"></span>
                             </div>
                         </form>
                     </div>
                     <div class="col-6">
-                        <form name="register-form" method="post" action="/accounts/register">
+                        <form name="register-form" method="post">
                             <div class="padded">
                                 <h3>Sign Up</h3>
                                 <div class="form-section">

@@ -39,8 +39,7 @@ $klein->respond(function ($request, $response, $service, $app) use ($config, $kl
 
     $app->register('views', function () use ($request, $app, $service) {
         $views = new Views($app, $service);
-        $views->setSiteUrl($app->api->getSiteUrl($request));
-        return $views;
+        return $views->setSiteUrl($app->api->getSiteUrl($request));
     });
 });
 
@@ -77,6 +76,7 @@ $klein->respond(['POST', 'GET'], '/[a:short_slug]', function ($req, $resp, $serv
 $klein->respond(['POST', 'GET'], '/accounts/[a:action]', function ($req, $resp, $service, $app) {
     $app->accounts->execute($req, $resp);
 });
+
 
 $klein->respond('GET', '/debug', function ($req, $resp, $service, $app) {
     session_start();

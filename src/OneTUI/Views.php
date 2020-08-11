@@ -17,7 +17,7 @@ class Views
     private $components_dir = "src/views/components/";
     private $assets_dir = "src/";
     private $ui_version = "1.0.0";
-    private $site_url = "https://1t.ie/";
+    private $site_url;
     private $app;
 
     /**
@@ -30,13 +30,18 @@ class Views
         Utils::startSession();
         $this->app = $app;
         $this->service = $service;
+        $this->updateSharedData();
+    }
 
+    public function updateSharedData()
+    {
         $this->sharedData = [
             'views' => $this->views_dir,
             'components' => $this->components_dir,
             'assets' => $this->assets_dir,
             'version' => $this->ui_version,
             'site_url' => $this->site_url,
+            'logged_in' => Accounts::isLoggedIn(),
         ];
     }
 
@@ -87,11 +92,6 @@ class Views
         $this->renderView("contact");
     }
 
-    public function getSharedData()
-    {
-        return $this->sharedData;
-    }
-
     public function links()
     {
         $stats = new Statistics($this->app->pdo);
@@ -105,11 +105,13 @@ class Views
     }
 
     /**
-     * @param string $site_url
+     * @param mixed $site_url
+     * @return Views
      */
     public function setSiteUrl($site_url)
     {
         $this->site_url = $site_url;
+        $this->sharedData['site_url'] = $site_url;
+        return $this;
     }
-
 }

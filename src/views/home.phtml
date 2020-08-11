@@ -21,7 +21,7 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="frame">
+                <div class="frame padded">
                     <div class="frame__header">
                         <h6 class="frame__title m-0">Shorten your long URLs by entering them here</h6>
                     </div>
@@ -31,6 +31,7 @@
                                 <label for="url" class="form-group-label label-large">URL</label>
                                 <input type="text" class="form-group-input input-large" id="url" name="url"
                                        placeholder="eg. https://example.com">
+                                <input type="hidden" name="api_key" value="48af57a75428d2d6bd0c">
                                 <button class="form-group-btn btn-large btn-primary" id="shorten-btn" type="submit"
                                         form="shorten_url_form">Shorten
                                 </button>

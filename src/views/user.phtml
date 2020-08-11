@@ -6,60 +6,90 @@
 
         <div class="row title-row">
             <div class="col-12">
-                <h1>My Account</h1>
+                <h1>My Account (This page is not functional yet)</h1>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-12">
+            <div class="col-4">
                 <div class="frame">
-                    <div class="frame__header">
-                        <h6 class="frame__title m-0">Your Links</h6>
-                    </div>
                     <div class="frame__body">
-                        <table class="table bordered striped">
-                            <thead>
-                            <tr>
-                                <th><abbr title="Link ID">#</abbr></th>
-                                <th>1t Link</th>
-                                <th>Links to</th>
-                                <th>Visitors</th>
-                                <th>Controls</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            <?php foreach($this->user_links as $key => $row): ?>
-                                <tr>
-                                    <th>
-                                        <p><?= $key ?></p>
-                                    </th>
-                                    <td>
-                                        <div class="form-group">
-                                            <input class="form-group-input" value="<?= $this->site_url . $row->short_slug ?>" readonly>
-                                            <button class="form-group-btn"><i class="far fa-copy"></i></button>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-group">
-                                            <input class="form-group-input" value="<?= base64_decode($row->url_base64) ?>" readonly>
-                                            <button class="form-group-btn"><i class="far fa-edit"></i></button>
-                                            <button class="form-group-btn"><i class="far fa-copy"></i></button>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <p>100</p>
-                                    </td>
-                                    <td>
-                                        <div class="btn-container">
-                                            <div class="btn btn-danger btn-small">Delete</div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                        <div class="frame__header"></div>
+                        <ul class="menu">
+                            <h4>Navigation</h4>
+                            <li class="divider"></li>
+                            <p class="menu-title uppercase">Account Settings</p>
+                            <li class="menu-item selected">
+                                <a href="#account-info">Account Info</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#change-password">Change password</a>
+                            </li>
+                            <p class="menu-title uppercase">Api Settings</p>
+                            <li class="menu-item">
+                                <a href="#">Api Access</a>
+                            </li>
+                        </ul>
+                        <div class="frame__footer"></div>
                     </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="frame padded" id="account-info">
+                    <div class="frame__header"></div>
+                    <div class="frame__body">
+                        <h3>Account Info</h3>
+                        <div class="row">
+                            <div class="col">
+                                <label for="account-email">Email Address</label>
+                                <input type="text" id="account-email" value="a@xsq.pw" readonly>
+                            </div>
+                            <div class="col">
+                                <label for="account-username">Username</label>
+                                <input type="text" id="account-username" value="depp" readonly>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="account-api-key">API Access key</label>
+                                <input type="text" id="account-api-key" value="xyz12asndiadasdhawuq" readonly>
+                            </div>
+                            <div class="col">
+                                <label for="account-link-count">Total generated links</label>
+                                <input type="text" id="account-link-count" value="6" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frame__footer"><space></space></div>
+                </div>
+                <space></space>
+                <div class="frame padded" id="change-password">
+                    <div class="frame__header"></div>
+                    <form name="change-password-form" id="change-password-form" method="post">
+                        <div class="frame__body">
+                            <h3>Change your password</h3>
+                            <div class="form-section">
+                                <label for="password">New password</label>
+                                <div class="input-control">
+                                    <input id="password" name="password" placeholder="Password" type="password"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="form-section">
+                                <label for="password">Confirm new password</label>
+                                <div class="input-control">
+                                    <input id="password-confirm" name="password-confirm" placeholder="Confirm password"
+                                           type="password" value="">
+                                </div>
+                            </div>
+                            <space></space>
+                            <button class="btn-info u-pull-right" id="change-password-btn" name="btn" value="change-password" type="submit">
+                                Change password
+                            </button>
+                            <span class="fg-danger info change-password-result"></span>
+                        </div>
+                    </form>
+                    <space></space>
                     <div class="frame__footer"></div>
                 </div>
             </div>
