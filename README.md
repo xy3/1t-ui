@@ -12,17 +12,17 @@ Please follow the [installation instructions here.](https://github.com/xy3/1t.ie
 
 ### Features
 
-1t-ui uses the incredibly cool and easy to use, Cirrus CSS framework.
-Check out the [Cirrus GitHub repo here.](https://github.com/Spiderpig86/Cirrus)
+1t-ui uses:
+- [Cirrus](https://github.com/Spiderpig86/Cirrus) - a really cool and easy to use CSS framework.
 
-Klein.php is used for page routing.
-If you would like to add your own page routes, check out the Klein.php [repo here](https://github.com/klein/klein.php)
-for the documentation.
+- [Klein.php](https://github.com/klein/klein.php) PHP Router.
+If you would like to add your own page routes, check out the Klein.php [repo](https://github.com/klein/klein.php)
+for docs.
 
 ### Requirements
 
-- PHP >5.3.0 (PHP >7.0 recommended)
-- [Composer](https://getcomposer.org/)
+- PHP >5.3.0 (PHP >7.0 recommended).
+- [Composer](https://getcomposer.org/) for installing.
 
 ### Contributing
 
