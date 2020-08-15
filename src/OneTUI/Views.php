@@ -3,7 +3,7 @@
 namespace OneTUI;
 
 use OneT\Accounts;
-use OneT\Statistics;
+use OneT\User;
 use OneT\Utils;
 
 /**
@@ -42,6 +42,7 @@ class Views
             'version' => $this->ui_version,
             'site_url' => $this->site_url,
             'logged_in' => Accounts::isLoggedIn(),
+            'user' => Accounts::getCurrentUser(),
         ];
     }
 
@@ -94,7 +95,7 @@ class Views
 
     public function links()
     {
-        $stats = new Statistics($this->app->pdo);
+        $stats = new User($this->app->pdo);
         $this->sharedData['user_links'] = $stats->getUserLinks($_SESSION['user']->user_id);
         $this->renderView("links");
     }

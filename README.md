@@ -21,8 +21,8 @@ for docs.
 
 ## Requirements
 
-- PHP >5.3.0 (PHP >7.0 recommended).
-- [Composer](https://getcomposer.org/) for installing.
+- PHP >5.4.0
+- [Composer](https://getcomposer.org/) for installing dependencies
 
 ## Contributing
 

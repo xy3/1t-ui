@@ -45,7 +45,7 @@ jQuery(document).ready(function ($) {
 
 
     //
-    // Login start
+    // Login & register start
     //
 
     $("#login-form").submit(function (e) {
@@ -61,9 +61,25 @@ jQuery(document).ready(function ($) {
                 if (data.success) {
                     location.reload()
                 } else {
-                    var errorMsg = $(".fg-danger.info.login-result")
-                    errorMsg.show()
-                    errorMsg.text(data.message).fadeIn(10)
+                    $(".login-result").text(data.message).fadeIn(10)
+                }
+            })
+    })
+
+    $("#register-form").submit(function (e) {
+        e.preventDefault()
+        var form_data = $(this).serialize()
+        $("#register-btn").addClass("animated loading u-center loading-white hide-text")
+
+        $.post(
+            '/accounts/register',
+            form_data,
+            function (data) {
+                data = JSON.parse(data)
+                if (data.success) {
+                    location.reload()
+                } else {
+                    $(".register-result").text(data.message).fadeIn(10)
                 }
             })
     })
@@ -87,7 +103,7 @@ jQuery(document).ready(function ($) {
 
 
     //
-    // Login end
+    // Login & register end
     //
 
 
@@ -106,4 +122,44 @@ jQuery(document).ready(function ($) {
             $(this).removeClass('btn-success')
         }, 2000)
     })
+
+    $(".delete-link-btn").click(function (e) {
+        var row = $(this).closest("tr")
+        var hash_id = row.data("hash-id")
+        var link = row.find(".shortened-link").val()
+        if (!hash_id) return
+        $("#link-to-be-deleted").text(link)
+        $("#confirm-delete-link-btn").data("hash-id", hash_id)
+    })
+
+    $("#confirm-delete-link-btn").click(function (e) {
+        var hash_id = $("#confirm-delete-link-btn").data("hash-id")
+        var api_key = $("#api-key").val()
+        if (!hash_id || !api_key) return
+        $.post(
+            '/api/deletelink',
+            {
+                api_key: api_key,
+                link_hash_id: hash_id
+            },
+            function (data) {
+                data = JSON.parse(data)
+                if (data.success) {
+                    closeModals()
+                    $(`tr[data-hash-id=${hash_id}]`).remove()
+                }
+            })
+    })
+
+
+
+    //
+    // Links end
+    //
+
+    function closeModals() {
+        for (const modal of $('.modal-overlay')) {
+            modal.click()
+        }
+    }
 })

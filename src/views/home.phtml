@@ -31,11 +31,18 @@
                                 <label for="url" class="form-group-label label-large">URL</label>
                                 <input type="text" class="form-group-input input-large" id="url" name="url"
                                        placeholder="eg. https://example.com">
-                                <input type="hidden" name="api_key" value="48af57a75428d2d6bd0c">
+                                <?php if ($this->logged_in): ?>
+                                    <input type="hidden" name="api_key" value="<?= $this->user->api_key ?>">
+                                <?php endif; ?>
                                 <button class="form-group-btn btn-large btn-primary" id="shorten-btn" type="submit"
                                         form="shorten_url_form">Shorten
                                 </button>
                             </div>
+                            <?php if ($this->logged_in): ?>
+                            <span class="info text-success u-text-center"><i class="fas fa-check"></i> You are logged in</span>
+                            <?php else: ?>
+                            <span class="info text-info u-text-center"><i class="fas fa-times"></i> You are not logged in</span>
+                            <?php endif; ?>
                         </form>
                     </div>
                     <div class="frame__footer"></div>

@@ -67,8 +67,8 @@ $klein->respond(['POST', 'GET'], '/api/[a:action]', function ($req, $resp, $serv
     $app->api->execute($req, $resp);
 });
 
-$klein->respond(['POST', 'GET'], '/[a:short_slug]', function ($req, $resp, $service, $app) use ($pages, $klein) {
-    if (!in_array($req->short_slug, $pages)) {
+$klein->respond(['POST', 'GET'], '/[a:link_hash_id]', function ($req, $resp, $service, $app) use ($pages, $klein) {
+    if (!in_array($req->link_hash_id, $pages)) {
         $app->api->resolve($req, $resp);
     }
 });
