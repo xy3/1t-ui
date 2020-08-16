@@ -1,17 +1,11 @@
 {
     "require": {
         "klein/klein": "^2.1",
-        "xy3/1t-api": "dev-master"
+        "xy3/1t-api": "*"
     },
     "autoload": {
         "psr-4": {
             "OneTUI\\": "src/OneTUI/"
         }
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../1t.ie"
-        }
-    ]
+    }
 }

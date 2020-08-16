@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5000a9a7118fe46afbddc2a62a6410b9",
+    "content-hash": "19efa2bdd544f6676f048e0902faee3c",
     "packages": [
         {
             "name": "hashids/hashids",
@@ -135,11 +135,17 @@
         },
         {
             "name": "xy3/1t-api",
-            "version": "dev-master",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xy3/1t.ie.git",
+                "reference": "675b14daf8eb7c2e849939a3e714139e57401fa5"
+            },
             "dist": {
-                "type": "path",
-                "url": "../1t.ie",
-                "reference": "5459604e9e265b541a8d8c40dbb9b274e7baeb3c"
+                "type": "zip",
+                "url": "https://api.github.com/repos/xy3/1t.ie/zipball/675b14daf8eb7c2e849939a3e714139e57401fa5",
+                "reference": "675b14daf8eb7c2e849939a3e714139e57401fa5",
+                "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
@@ -153,6 +159,7 @@
                     "OneT\\": "src/OneT/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -163,17 +170,13 @@
                 }
             ],
             "description": "Api for 1t.ie",
-            "transport-options": {
-                "relative": true
-            }
+            "time": "2020-08-16T01:10:54+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "xy3/1t-api": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
