@@ -147,6 +147,8 @@ jQuery(document).ready(function ($) {
                 if (data.success) {
                     closeModals()
                     $(`tr[data-hash-id=${hash_id}]`).remove()
+                } else {
+                    $("#delete-error-message").text(data.message)
                 }
             })
     })
