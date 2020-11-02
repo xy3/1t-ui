@@ -135,16 +135,16 @@
         },
         {
             "name": "xy3/1t-api",
-            "version": "1.0.4",
+            "version": "1.05",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xy3/1t.ie.git",
-                "reference": "675b14daf8eb7c2e849939a3e714139e57401fa5"
+                "reference": "87f473a9622361e5a7ed97516fe4453d41158493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xy3/1t.ie/zipball/675b14daf8eb7c2e849939a3e714139e57401fa5",
-                "reference": "675b14daf8eb7c2e849939a3e714139e57401fa5",
+                "url": "https://api.github.com/repos/xy3/1t.ie/zipball/87f473a9622361e5a7ed97516fe4453d41158493",
+                "reference": "87f473a9622361e5a7ed97516fe4453d41158493",
                 "shasum": ""
             },
             "require": {
@@ -170,7 +170,7 @@
                 }
             ],
             "description": "Api for 1t.ie",
-            "time": "2020-08-16T01:10:54+00:00"
+            "time": "2020-11-02T21:24:06+00:00"
         }
     ],
     "packages-dev": [],
